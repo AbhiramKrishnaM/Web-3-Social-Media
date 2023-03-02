@@ -9,7 +9,7 @@ export const urlClient = createClient({
   url: API_URL,
 });
 
-export const queryRecomendedProfiles = `
+export const queryRecommendedProfiles = `
 query RecommendedProfiles {
     recommendedProfiles {
           id
