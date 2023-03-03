@@ -65,7 +65,13 @@ function App() {
     getPosts();
   }, []);
 
-  return <div></div>;
+  return (
+    <div>
+      <Box width="100%" backgroundColor="rgba(5,32,64,8)">
+        <Box display="flex" justifyContent="space-between"></Box>
+      </Box>
+    </div>
+  );
 }
 
 export default App;
