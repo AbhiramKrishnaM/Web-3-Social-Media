@@ -11,11 +11,13 @@ import LENSHUB from "./lenshub.json";
 
 import { ethers } from "ethers";
 
-import { Box, Button, Image } from "@chakra-ui/react";
+import { Avatar, Box, Button, Image } from "@chakra-ui/react";
 
 function App() {
   const [account, setAccount] = useState(null);
   const [profiles, setProfiles] = useState([]);
+  console.log(profiles);
+
   const [posts, setPosts] = useState([]);
 
   async function signIn() {
@@ -92,6 +94,36 @@ function App() {
             </Button>
           )}
         </Box>
+      </Box>
+
+      {/* Content */}
+      <Box
+        display="flex"
+        width="50%"
+        justifyContent="space-between"
+        m="35px auto auto auto"
+        color="white"
+      >
+        {/* Posts */}
+        <Box width="65%" maxW="65%" minW="65%">
+          {posts.map((post) => (
+            <Box
+              key={post.id}
+              marginBottom="25px"
+              backgroundColor="rgba(5,32, 64, 28)"
+              padding="40px"
+              borderRadius="6px"
+            >
+              {/* avatar */}
+              <Box display="flex">
+                <Avatar url={post?.picture?.original.url}></Avatar>
+              </Box>
+            </Box>
+          ))}
+        </Box>
+
+        {/* Friend Suggestions */}
+        <Box></Box>
       </Box>
     </div>
   );
