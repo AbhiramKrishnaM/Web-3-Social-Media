@@ -68,7 +68,30 @@ function App() {
   return (
     <div>
       <Box width="100%" backgroundColor="rgba(5,32,64,8)">
-        <Box display="flex" justifyContent="space-between"></Box>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          width="50%"
+          m="auto"
+          color="white"
+          p="10px 0"
+        >
+          <Box>
+            <Box fontSize={44} fontWeight="light">
+              I3D
+            </Box>
+            <Box>Decentralized Social Media Aplication</Box>
+          </Box>
+
+          {account ? (
+            <Button colorScheme="facebook">Connected</Button>
+          ) : (
+            <Button colorScheme="gray" color="rgba(5,32,64,8)" onClick={signIn}>
+              Connect
+            </Button>
+          )}
+        </Box>
       </Box>
     </div>
   );
