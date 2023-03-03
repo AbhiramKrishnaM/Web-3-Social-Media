@@ -20,7 +20,7 @@ function App() {
 
   async function signIn() {
     const accounts = await window.ethereum.request({
-      method: "",
+      method: "eth_requestAccounts",
     });
 
     setAccount(accounts[0]);
