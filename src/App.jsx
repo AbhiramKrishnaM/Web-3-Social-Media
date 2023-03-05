@@ -16,9 +16,9 @@ import { Avatar, Box, Button, Image } from "@chakra-ui/react";
 function App() {
   const [account, setAccount] = useState(null);
   const [profiles, setProfiles] = useState([]);
-  console.log(profiles);
 
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   async function signIn() {
     const accounts = await window.ethereum.request({
@@ -114,9 +114,27 @@ function App() {
               padding="40px"
               borderRadius="6px"
             >
-              {/* avatar */}
               <Box display="flex">
-                <Avatar url={post?.picture?.original.url}></Avatar>
+                <Avatar
+                  src={`${post?.profile?.coverPicture?.original?.url}`}
+                ></Avatar>
+
+                <Box flexGrow={1} marginLeft="20px">
+                  <Box>
+                    <Box
+                      display="flex"
+                      justifyContent="space-between"
+                      _hover={{ cursor: "pointer" }}
+                    >
+                      <Box>{post.profile?.handle}</Box>
+                      <Box onClick={() => follow(post.id)}>Follow</Box>
+                    </Box>
+                  </Box>
+
+                  <Box overflowWrap="anywhere" marginTop={5}>
+                    {post.metadata?.content}
+                  </Box>
+                </Box>
               </Box>
             </Box>
           ))}
